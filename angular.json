@@ -26,6 +26,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              {
+                "glob": "src/_redirects",
+                "input": "src",
+                "output": "/"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
