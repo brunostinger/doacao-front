@@ -1,2 +1,4 @@
 /*
   Access-Control-Allow-Origin: *
+
+/api/*  https://doacao.free.beeceptor.com  200
