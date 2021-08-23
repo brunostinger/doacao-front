@@ -58,7 +58,7 @@ export class AuthService {
               res.headers.keys();
               this.setSession(res);
               if(this.isLoggedIn())
-                this.router.navigate(['account']);
+                this.router.navigate(['/account']);
             }
         }
       },
