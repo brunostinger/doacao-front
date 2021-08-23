@@ -1,0 +1,17 @@
+.summaryContainer{
+    overflow: hidden;
+    overflow-x: hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+@media screen and (max-width: 540px) {
+    .resultListContainer {
+      width: 100%;
+      justify-content: center!important;
+    }
+
+    .eventCard{
+        max-width: 246px;
+    }
+}

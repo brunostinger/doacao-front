@@ -1,0 +1,17 @@
+<div class="rewardContainer col-12 bg-light d-flex justify-content-center" infiniteScroll  [scrollWindow]="false" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="resultListContainer  d-flex flex-row justify-content-start align-content-start flex-wrap mt-3">
+
+        <div class="card eventCard" *ngFor="let event of events" (click)="eventDetails(event?.id)">
+            <div [ngClass]="{'cardImage': event?.id!=0, 'cardImageMore': event?.id==0}">
+                <app-image-loader  class="card-img-top" [src]=event?.coverImage></app-image-loader>
+            </div>
+            <div class="card-body eventCardBody d-flex flex-column justify-content-between">
+                <h6 class="card-title eventCardTitle text-center">{{event?.name}}</h6>
+                <label class="text-center eventDate">{{event?.scheduleDate | date : 'dd/MM/yyyy HH:mm'}}</label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

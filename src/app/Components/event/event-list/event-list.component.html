@@ -1,0 +1,18 @@
+
+<div class="resultContainer col-12 bg-light d-flex justify-content-center" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="resultListContainer  d-flex flex-row justify-content-start flex-wrap mt-3">
+
+        <div class="card eventCard" *ngFor="let event of events" (click)="eventDetails(event?.id)">
+            <div [ngClass]="{'cardImage': event?.id!=0, 'cardImageMore': event?.id==0}">
+                <app-image-loader  class="card-img-top" [src]=event?.coverImage></app-image-loader>
+            </div>
+            <div class="card-body p-2 eventCardBody d-flex flex-column justify-content-between">
+                <h6 class="card-title eventCardTitle text-center">{{event?.name}}</h6>
+                <label  *ngIf="event?.id!=0" class="text-center eventDate">Dia: {{event?.scheduleDate | date : 'dd/MM/yyyy HH:mm'}} - Valor: {{(event?.value | currency : '' : '')}}<i class="bi bi-heart-fill ms-1 themeColor"></i></label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

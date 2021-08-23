@@ -1,0 +1,48 @@
+<div class="mainContainer d-flex flex-column align-items-center">
+    <div class="searchContainer">
+      <div>
+        <div class="col font-weight-bold d-flex justify-content-center eventFilterTitle">
+          <h2>Encontre eventos</h2>
+      </div>
+      </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex flex-row">
+            <div class="col d-flex  eventFilter flex-wrap">
+              
+               <div class="form-floating me-2 ns mt-2">                  
+                  <input (keyup.enter)="searchEvents()"  [(ngModel)]="name" type="text" class="form-control" id="eventName" >
+                  <label for="eventName">Nome</label>
+                </div>
+                
+                <div class="form-floating me-2 ds mt-2 me-1 ms-1">                  
+                  <select  [(ngModel)]="date"  class="form-select btn border btn-sm" id="eventDate">  
+                    <option class="dropdown-item" value=""></option>           
+                    <option class="dropdown-item" value="today"> Hoje</option>
+                    <option class="dropdown-item" value="week">Essa semana</option>
+                    <option class="dropdown-item" value="month">Esse mês</option>
+                  </select>
+                  <label for="eventDate">Data</label>
+                </div>
+
+                <div class="form-floating  ps mt-2">                  
+                  <select  [(ngModel)]="price"  class="form-select btn border btn-sm" id="priceOrder"> 
+                    <option class="dropdown-item" value=""></option>                       
+                    <option class="dropdown-item" value="asc">Menor preço</option>
+                    <option class="dropdown-item" value="desc">Maior preço</option>
+                  </select>
+                  <label for="priceOrder">Preço</label>
+                </div>
+               
+                <div class="">
+                  <button type="submit"  class="btn shadow-none h-100" (click)="searchEvents()"><i class=" fs-3 bi bi-search"></i>
+                  </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="w-100 bg-light ps-4 pe-4  d-flex flex-column align-items-center">
+      <div class="events" >
+        <app-event-list [name]=name [date]=date [price]=price [search]=clicked></app-event-list>
+      </div>
+    </div>
+</div>
+

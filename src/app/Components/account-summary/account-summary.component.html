@@ -1,0 +1,14 @@
+
+
+<div class=" summaryContainer">
+    <div class="m-2">
+        <h4 *ngIf="userType != 'ROLE_ORG'" >Meus pontos: <app-balance></app-balance></h4>
+        <h4 *ngIf="userType == 'ROLE_ORG'" >Doações recebidas: <app-balance ></app-balance></h4>
+    </div>
+    
+    <div class="summaryContainer">
+        <app-calendar></app-calendar>
+    </div>
+</div>
+
+

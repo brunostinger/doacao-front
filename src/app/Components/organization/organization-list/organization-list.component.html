@@ -1,0 +1,17 @@
+<div class="resultContainer col-12 bg-light d-flex justify-content-center" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="resultListContainer  d-flex flex-row justify-content-start flex-wrap mt-3">
+
+        <div class="card eventCard" *ngFor="let org of orgs" (click)="orgDetails(org?.id)">
+            <div [ngClass]="{'cardImage': org?.id!=0, 'cardImageMore': org?.id==0}">
+                <app-image-loader  class="card-img-top" [src]=org?.profileImage></app-image-loader>
+            </div>
+            <div class="card-body eventCardBody d-flex flex-column justify-content-between">
+                <h6 class="card-title eventCardTitle text-center">{{org?.name}}</h6>
+                <h6 class="eventCardTitle">{{org?.bio}}</h6>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+

@@ -1,0 +1,70 @@
+<div class="mainContainer d-flex flex-column align-items-center">
+
+  <div class="banner d-flex flex-row justify-content-start flex-wrap">
+      <div class="headerText col"> 
+        <h3 class="display-5">Faça parte do Projeto DoAção!</h3> 
+          <h2  class="display-5" ><div class="textHeader">Aqui você pode</div></h2>
+          <h2 class="display-5 writer"> <ngtypewriter [StringList]='list' [speed]='1000'></ngtypewriter> </h2>
+          <h3 class="plataformResume display-6"><p>Na DoAção você fortalece organizações filantrópicas e ganha pontos para trocar por participações em eventos.</p></h3>
+      </div>
+      <div class="headerImg">
+        <img class="card-img-top" src="../../../assets/img/home2.png">
+      </div>
+  </div>
+
+  <div class="bg-light w-100 divider"></div>
+
+  <div  class="d-flex justify-content-center w-100">
+    <h1 class="display-4 text-center textHeader orgtextHeader">Você em Ação!</h1>
+  </div>
+
+    <div class="d-flex justify-content-center bg-light w-100">
+      <div class="cardContainer d-flex flex-wrap bg-light p-3">
+        
+        <div class="card cards  animate__animated hide-on-init" animateOnScroll  animationName="animate__fadeInLeft">
+            <img class="cardImage" src="../../../assets/img/card1.png">
+            <div class="card-body">
+              <h5 class="display-6 textHeader text-center">Você doa</h5>
+              <p class="card-text text-center">Faça o cadastro e contribua com as instituições.</p>
+            </div>
+          </div>
+  
+          <div  class="card cards cardCenter animate__animated hide-on-init ms-2 me-2" animateOnScroll animationName="animate__fadeInUp">
+            <img class="cardImage" src="../../../assets/img/img2.jpeg">
+            <div class="card-body">
+              <h5 class="display-6 textHeader text-center">Nós transformamos</h5>
+              <p class="card-text text-center">O valor da doação é convertido em pontos <br>(R$1,00 = 1 ponto).</p>
+            </div>
+          </div>
+  
+          <div  class="card cards  animate__animated hide-on-init" animateOnScroll animationName="animate__fadeInRight" >
+            <img class="cardImage" src="../../../assets/img/card3.png">
+            <div class="card-body">
+              <h5 class="display-6 textHeader text-center">E devolvemos</h5>
+              <p class="card-text text-center">Utilize os pontos para adquirir eventos.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div>
+      <div  class="d-flex justify-content-center w-100">
+        <h1 class="display-4 text-center textHeader orgtextHeader">Contribua com uma instituição!</h1>
+      </div>
+    </div>
+    <div  class="w-100 orgList animate__animated hide-on-init" animateOnScroll  animationName="animate__fadeInRight">
+      <app-organization-list [limit]=4 ></app-organization-list>
+    </div>
+
+    <div>
+      <div  class="d-flex justify-content-center w-100">
+        <h1 class="display-4 text-center textHeader orgtextHeader">Próximos eventos</h1>
+      </div>
+    </div>
+    <div class="w-100 orgList animate__animated hide-on-init" animateOnScroll  animationName="animate__fadeInRight">
+      <app-event-list [limit]=4></app-event-list>
+    </div>
+
+</div>
+

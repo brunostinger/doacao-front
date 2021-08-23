@@ -1,0 +1,10 @@
+.space{
+    width: 85%;
+}
+
+@media screen and (max-width: 540px) {
+    .space{
+        width: 40%;
+    }
+    
+}

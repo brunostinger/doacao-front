@@ -1,0 +1,49 @@
+.cp{
+  width: 25%;
+}
+
+.userInfoContainer{
+  height: calc(100vh - 200px);
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none; 
+}
+
+
+.userInfoContainer::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.userInfoContainer::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+.userInfoContainer::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 15px;
+}
+
+.userInfoContainer:hover::-webkit-scrollbar-thumb {
+  background: #4A4A4A; 
+}
+
+.inlineInfo{
+  margin-right: 10px;
+}
+
+
+@media screen and (max-width: 540px) {
+  .userInfoContainer{
+      height: calc(100vh - 250px);
+      overflow: scroll;
+      overflow-x: hidden;
+      -ms-overflow-style: none; 
+      scrollbar-width: none;
+      padding: 5px;
+  }
+
+  .cp{
+    width: 95%;
+  }
+  
+}

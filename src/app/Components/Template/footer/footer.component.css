@@ -1,0 +1,32 @@
+.container{
+  position: fixed;
+  width: 50%;
+}
+ul.social-network{
+    list-style: none;
+    padding: 0;
+  }
+
+.bg-footer {
+  background:  #6394b1;
+
+}
+
+.fonte-rodape {
+    font-family: 'Roboto', sans-serif;
+}
+.fs-12{
+    font-size: 8pt;
+}
+
+.font-redes-sociais {
+   font-family: 'Roboto',sans-serif;
+   text-decoration: none;
+   font-size: 11pt;
+
+}
+
+
+.divider{
+  height: 20px;
+}

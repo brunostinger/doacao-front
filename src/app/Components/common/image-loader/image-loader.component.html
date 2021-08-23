@@ -1,0 +1,2 @@
+<img   width="" height="" *ngIf="!loaded" [src]="imgSrc"/>
+<img [hidden]="!loaded" (load)="loaded = true" [src]="src" class="img-fluid eventBannerImg"/>

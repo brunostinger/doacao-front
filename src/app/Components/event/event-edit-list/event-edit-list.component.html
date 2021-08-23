@@ -1,0 +1,66 @@
+<div class="eventeContainer col-12 bg-light d-flex justify-content-center" infiniteScroll  [scrollWindow]="false" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <div class="resultListContainer  d-flex flex-row justify-content-start align-content-start flex-wrap mt-3">
+        
+        <form  *ngIf="form" [formGroup]="form" class="w-100" (keydown.enter)="$event.preventDefault()">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex flex-row w-100">
+            <div class="col d-flex  eventFilter flex-wrap">
+                
+                <div class="form-floating me-2 ds mt-2 me-1 ms-2">                  
+                    <select formControlName="date"   class="form-select btn border btn-sm" id="date">  
+                      <option class="dropdown-item" value=""></option>           
+                      <option class="dropdown-item" value="today"> Hoje</option>
+                      <option class="dropdown-item" value="week">Essa semana</option>
+                      <option class="dropdown-item" value="month">Esse mês</option>
+                    </select>
+                    <label for="date">Data</label>
+                  </div>
+    
+                  <div class="form-floating me-2 ds mt-2 me-1 ms-1">                  
+                    <select  formControlName="status"  class="form-select btn border btn-sm" id="status">  
+                      <option class="dropdown-item" value=""></option>           
+                      <option class="dropdown-item" value="1"> Ativo</option>
+                      <option class="dropdown-item" value="0">Inativo</option>
+                    </select>
+                    <label for="status">Status</label>
+                  </div>
+
+                  <div class="form-floating  ns mt-2">                  
+                    <input  (keyup.enter)="getEvents()" formControlName="name" type="text" class="form-control" id="name" >
+                    <label for="name">Nome</label>
+                  </div>
+               
+                <div class="">
+                  <button type="submit"  class="btn shadow-none h-100" (click)="getEvents()"><i class="ms-2 fs-3 bi bi-search"></i>
+                  </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-end justify-content-end col pb-0 themeColor me-2 addEvent">
+                    <div (click)="newEvent()"  role="button" class="d-flex flex-column" id="addEvent">
+                        <button type="button" class=" btn pb-0 " ><i class="bi bi-plus-square fs-3"></i></button>
+                        <div  class="ps-2"><strong>Novo</strong></div>
+                    </div>
+                </div>            
+            </div>
+        </nav>
+    </form>
+
+        <table *ngIf="events.length > 0" class="table table-striped table-hover table-bordered mt-2">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="button" *ngFor="let event of events" (click)="eventDetails(event?.id)">
+                <td class="">{{event?.name}}</td>
+                <td>{{event?.scheduleDate | date : 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{event?.eventStatus.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container eventContainer m-0">
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="saveEvent()" (keydown.enter)="$event.preventDefault()">
+
+      <div class="row mt-3 mt-0">
+        <div class="col-md-5">
+          <label for="name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name" formControlName="name" [ngClass]="{'is-invalid': form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)}" >
+        </div>
+      </div>
+
+      <div class="row mt-3 mt-0">
+        <div class="row mt-3">
+            <div class="col-md-8"  >
+              <label for="description" class="form-label">Descrição</label>
+                <textarea class="form-control"  formControlName="description" id="description" [ngClass]="{'is-invalid': form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)}" rows="3"></textarea>
+            </div>
+          </div>
+      </div>
+  
+      
+  
+      <div class="row mt-3 col-4">
+        <label for="tscheduleDate" class="form-label">Data</label>
+        <div class="input-group col-md-2">
+          <input type="date" class="form-control" id="tscheduleDate" formControlName="tscheduleDate" [ngClass]="{'is-invalid': form.controls.tscheduleDate.invalid && (form.controls.tscheduleDate.dirty || form.controls.tscheduleDate.touched)}" >
+          <input type="time" class="form-control" id="scheduleTime" formControlName="scheduleTime"  [ngClass]="{'is-invalid': form.controls.scheduleTime.invalid && (form.controls.scheduleTime.dirty || form.controls.scheduleTime.touched)}" >
+        </div>
+      </div>
+  
+
+      <div class="row mt-3">
+        <div class="col-md-2">
+          <label for="duration" class="form-label">Duração</label>
+          <input type="time" class="form-control" id="duration" formControlName="duration"  [ngClass]="{'is-invalid': form.controls.duration.invalid && (form.controls.duration.dirty || form.controls.duration.touched)}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="value" class="form-label">Valor (Pontos)</label>
+            <input type="number" class="form-control" id="value" formControlName="value"  [ngClass]="{'is-invalid': form.controls.value.invalid && (form.controls.value.dirty || form.controls.value.touched)}">
+        </div>
+
+        <div class="col-md-2">        
+          <label for="status" class="form-label">Status</label>
+          <select  formControlName="status"  class="form-select" id="status" [ngClass]="{'is-invalid': form.controls.status.invalid && (form.controls.status.dirty || form.controls.status.touched)}">  
+            <option class="dropdown-item" value=""></option>
+            <option class="dropdown-item" value="1"> Ativo</option>
+            <option class="dropdown-item" value="0">Inativo</option>
+          </select>
+        </div>
+
+      </div>
+  
+
+  
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <label for="coverImage" class="form-label">Imagem da capa (Link)</label>
+          <input type="text" class="form-control" id="coverImage" formControlName="coverImage" [ngClass]="{'is-invalid': form.controls.coverImage.invalid && (form.controls.coverImage.dirty || form.controls.coverImage.touched)}">
+        </div>
+  
+        <div class="col-md-3">
+          <label for="link" class="form-label">Link evento</label>
+          <input type="text" class="form-control" id="link" formControlName="link" [ngClass]="{'is-invalid': form.controls.link.invalid && (form.controls.link.dirty || form.controls.link.touched)}">
+        </div>
+      </div>
+  
+
+  
+      <div class="row g-3">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary float-end" [disabled]="form.invalid  || loading">
+            <span class="spinner-border spinner-border-sm" role="status" [hidden]=!loading aria-hidden="true"></span>
+            Salvar
+          </button>
+        </div>   
+      </div>
+      
+    </form>
+  </div>

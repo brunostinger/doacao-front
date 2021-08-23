@@ -1,0 +1,77 @@
+
+<div class="">
+  <div  class="loadContainer w-100 bg-light">
+    <div  [ngClass]="{'loadingSplash' : loading}"></div>
+  </div>
+
+  <div class="row g-0">
+   <div class="col-1 sidebar" style="width: 6rem;">
+    <div class="d-flex h-100 flex-column flex-shrink-0 bg-light">
+      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['summary'] } }]" class="sidebarLink">
+            <div class="sidebar-iten">
+              <i class="bi bi-house-door fs-3"></i>
+              <span>Home</span>
+            </div>
+          </a>     
+        </li>
+        <li class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['user'] } }]" class="sidebarLink">
+            <div class="sidebar-iten">
+              <i class="bi bi-person fs-3"></i>
+              <span>Minha conta</span>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['transaction'] } }]" class="sidebarLink">
+            <div class="sidebar-iten">
+              <i class="bi bi-currency-dollar fs-3"></i>
+              <span>Extrato</span>
+            </div>
+          </a>
+        </li>
+        <li *ngIf="userType != 'ROLE_ORG'" class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['reward'] } }]" class="sidebarLink" >
+            <div class="sidebar-iten">
+              <i class="rotated bi bi-bookmarks fs-3"></i>
+              <span>Ingressos</span>
+            </div>
+          </a>
+        </li>
+        <li *ngIf="userType == 'ROLE_ADM'" class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['event-manage'] } }]" class="sidebarLink" >
+            <div class="sidebar-iten">
+              <i class="bi bi-play-btn fs-3"></i>
+              <span>Eventos</span>
+            </div>
+          </a>
+        </li>
+        <li *ngIf="userType == 'ROLE_ADM'" class="nav-item border-bottom" routerLinkActive="active">
+          <a [routerLink]="[{ outlets: { accountRoute: ['user-manage'] } }]" class="sidebarLink" >
+            <div class="sidebar-iten">
+              <i class="bi bi-people fs-3"></i>
+              <span>Usuários</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <div class="border-top" (click)="logout()">
+          <a class="sidebarLink" mat-list-item>
+            <div class="sidebar-iten">
+              <i class="bi bi-box-arrow-left fs-3"></i>
+              <span>Sair</span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="col mainContentContainer" *blockUI="'block-main'">
+    <app-account-subheader headerTitle></app-account-subheader> 
+      <div class="mainContent">
+        <router-outlet name="accountRoute"></router-outlet>
+      </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="mainContainer d-flex flex-column align-items-center">
+    <div class="detailContainer col-11">
+        <h2><div class="eventTitle mb-2">{{organization?.name}}</div></h2>
+        <div class=" d-flex flex-row flex-wrap eventCard">
+            <div class="col-12 eventBanner">
+                <app-image-loader [type]="'lg'" class="img-fluid eventBannerImg" [src]=organization?.profileImage></app-image-loader> 
+            </div>
+             <div class="col-3 bg-light eventSubscription h-100 p-0">
+                <div class="card h-100">
+                    <div class="card-body d-flex h-100 p-2">
+                    <form class="form-inline" *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" (keydown.enter)="$event.preventDefault()">
+                        <div class="eventSubscriptionConfirm h-100 w-100">
+                            <section class="containerFlip h-100">
+                                <div class="cardFlip h-100" id="cardFlip" >
+                                  <div class="front">                                                                
+                                    <div class="card divFlip">                                            
+                                        <div class="card-header bg-dark text-white">
+                                            <div class="row">                                    
+                                                <div class="col">Contato</div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-2 d-flex flex-column">
+                                            <div class="row mb-3">
+                                                <div class="col-1">
+                                                    <i class="bi bi-globe"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <a class="link-secondary" href="{{organization?.site}}">{{organization?.site}}</a>
+                                                </div>                           
+                                            </div>
+            
+                                            <div class="row mb-3">
+                                                <div class="col-1">
+                                                    <i class="bi bi-envelope"></i>
+                                                </div>
+                                                <div class="col">
+                                                    <a  class="link-secondary" href="mailto:{{organization?.email}}">{{organization?.email}}</a>
+                                                </div>                           
+                                            </div>
+            
+                                            <div class="row mb-3">
+                                                <div class="col-1">
+                                                    <i class="bi bi-telephone"></i>
+                                                </div>
+                                                <div class="col" >{{organization?.phone+""  | imask: PHONE_MASK }}</div>
+                                                    
+                                                                        
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                </div>
+                                                <div class="col">
+                                                    {{organization?.district}}, {{organization?.city}}/{{organization?.state}}
+                                                </div>                           
+                                            </div>
+
+
+                                            <div  class="row h-100 d-flex align-items-end" *ngIf="userType != 'ROLE_ORG'">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">R$</span>
+                                                    <input type="text"  (keyup.enter)="donate()" #donationValue class="form-control" id="value" formControlName="value" [unmask]="true" [imask]="CURRENCY_MASK"  [ngClass]="{'is-invalid': form.controls.value.invalid && (form.controls.value.dirty || form.controls.value.touched)}" >                                          
+                                                    <button (click)="donate()" (keyup.enter)="donate()" type="button" class="btn btn-outline-secondary"  >Doar</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="back">
+                                    <div class="card">
+                                        <div class="card-header bg-dark text-white">
+                                            <div class="row">                                    
+                                                <div  class="col">Doar {{form.get("value")?.value | currency : 'BRL' : 'symbol'}}</div>
+                                                <div (click)="flipCard()" class="col-2" role="button"><i class="bi bi-arrow-return-left"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex flex-column pb-3">
+
+                                                <div class="row g-2 mt-0">
+                                                    <div class="input-group col-md-12">
+                                                        <span class="input-group-text"><i class="bi bi-credit-card"></i></span>
+                                                        <input type="text" placeholder="Número do cartão" class="form-control" id="cardNumber" formControlName="cardNumber"   [unmask]="true"  [imask]="{mask: '0000 0000 0000 0000'}"  [ngClass]="{'is-invalid': form.controls.cardNumber.invalid && (form.controls.cardNumber.dirty || form.controls.cardNumber.touched)}" >                                          
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="row g-2 mt-0">
+                                                    <div class="input-group col-md-6">
+                                                        <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
+                                                        <input type="text"  placeholder="Validade"  class="form-control" id="expiration" formControlName="expiration"  [unmask]="true"  [imask]="{mask: '00/00'}" [ngClass]="{'is-invalid': form.controls.expiration.invalid && (form.controls.expiration.dirty || form.controls.expiration.touched)}" >
+                                                
+
+                                                        <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>                                                    
+                                                        <input type="text" placeholder="CVV"  class="form-control" id="securityCode" formControlName="securityCode" [unmask]="true"  [imask]="{mask: '000'}" [ngClass]="{'is-invalid': form.controls.securityCode.invalid && (form.controls.securityCode.dirty || form.controls.securityCode.touched)}" >
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="row g-2 mt-0">
+                                                    <div class="input-group  ol-md-12">
+                                                      <span class="input-group-text"><i class="bi bi-person"></i></span>                                                    
+                                                      <input type="text" placeholder="Titular" class="form-control" id="owner" formControlName="owner" [ngClass]="{'is-invalid': form.controls.owner.invalid && (form.controls.owner.dirty || form.controls.owner.touched)}" >
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="row g-2 mt-0">
+                                                    <div class="input-group col-md-12">
+                                                      <span class="input-group-text"><i class="bi bi-wallet2"></i></span>                                                    
+                                                      <input type="text" placeholder="CPF/CNPJ" class="form-control" id="uniqueId" formControlName="uniqueId" [unmask]="true" [imask]="{mask:[ { maxLength: 11, mask: '000.000.000-00' }, { mask: '00.000.000/0000-00' } ]}" [ngClass]="{'is-invalid': form.controls.uniqueId.invalid && (form.controls.uniqueId.dirty || form.controls.uniqueId.touched)}" >
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="w-100 g-2 mt-3">
+                                                    <button (keyup.enter)="onSubmit()" type="submit" class="btn btn-outline-secondary w-100" [disabled]="form.invalid  || loading">
+                                                        <span class="spinner-border spinner-border-sm" role="status" [hidden]=!loading aria-hidden="true"></span>
+                                                        Salvar
+                                                      </button>
+                                                   </div>                                                   
+                                      
+                                        </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </section>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>     
+
+        </div>
+        <div class="row d-flex">
+            <div class="col-12">
+                <div class="">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h4><div class="eventTitle">Descrição da instituição</div></h4>
+                            <div class="eventDescription mt-3">{{organization?.bio}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

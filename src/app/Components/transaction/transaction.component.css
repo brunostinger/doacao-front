@@ -1,0 +1,56 @@
+.transactionContainer{
+    height: calc(100vh - 300px);
+    overflow: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none; 
+}
+
+.drow {background: #fff;}
+.drow:hover {background: #f8f9fa!important;}
+
+.transactionContainer::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.transactionContainer::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+.transactionContainer::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 15px;
+}
+
+.transactionContainer:hover::-webkit-scrollbar-thumb {
+  background: #4A4A4A; 
+}
+
+
+.hideOverFlow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+
+.transactionContainer:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 25px;
+    height: 30px;
+    background:
+    url("/assets/img/caret-down.svg")
+    no-repeat
+    left center;
+  }
+
+
+@media screen and (max-width: 540px) {
+    .balance{
+      display: none;
+    }
+  }

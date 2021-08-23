@@ -1,0 +1,37 @@
+<div>
+    <ul class="list-group p-1">
+        <li class="list-group-item">        
+        <div class="row">
+            <div class="col-2">
+               Tipo
+            </div>
+            <div class="col-6 p-0">
+                Destino
+            </div>
+            <div class="col-3">
+                Valor
+            </div>
+            <div class="col-1 balance">
+                Saldo
+            </div>
+         </div>
+     </ul>
+<div class="transactionContainer" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false">
+    <ul class="list-group p-1">
+            <li *ngFor="let transaction of transactions" class="list-group-item drow" role="button" (click)="openDest(transaction.transactionType?.id, transaction.toUser?.id, transaction.toEvent?.id)">        
+                <div class="row " >
+                    <div class="col-2"><i class="bi fs-3" [title]="transaction.transactionType.id==1 ? 'Doação' : 'Compra'" [ngClass]="{'bi-wallet2': transaction.transactionType.id==1, 'bi-bag-plus': transaction.transactionType.id==2}"></i></div>
+                    <div class="d-flex flex-column col-6 p-0 " >
+                        <div class="hideOverFlow" >{{transaction.transactionType.id==1 ? transaction.toUser.name : transaction.toEvent.name }}</div>
+                        <div class="text-muted">{{transaction.date | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                    <div class="d-flex flex-column col-3 p-0">
+                        <div class="">{{transaction.transactionType.id==1 ? (transaction.value | currency : 'BRL' : 'symbol') : (transaction.value | currency : '' : '') }}</div>
+                        <div class="text-muted"><i class="bi" [ngClass]="{'bi-node-plus': transaction.transactionType.id==1, 'bi-node-minus': transaction.transactionType.id==2}"></i>{{ transaction.value | currency : '' : ''}}</div>
+                    </div>
+                    <div  class="col-1 ps-2 balance" >{{(transaction.balance | currency : '' : '')}}<i class="bi bi-heart-fill ms-1 themeColor"></i></div>
+                </div>
+            </li>
+        </ul>
+  </div>
+  </div>

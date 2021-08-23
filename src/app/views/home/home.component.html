@@ -1,0 +1,11 @@
+<div id="container">
+    <app-nav></app-nav>
+    <div class="loadContainer w-100 bg-light">
+        <div [ngClass]="{'loadingSplash' : loading}"></div>
+    </div>
+    <div *blockUI="'block-main'">
+        <router-outlet  id="body"> 
+        </router-outlet>
+    </div>
+    <app-footer id="footer" *ngIf="!router.url.includes('account')" ></app-footer>
+</div>

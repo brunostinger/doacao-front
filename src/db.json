@@ -1,0 +1,14 @@
+{
+  "user": {
+    "name": "Bruno",
+    "phone": "62983181630",
+    "email": "Bruno@email.com",
+    "address": "Rua 10 de março",
+    "addressNumber": "15",
+    "addressComplement": "Quadra A lote B",
+    "district": "Centro",
+    "city": "Anápolis",
+    "state": "GO ",
+    "postalCode": "75020060"
+  }
+}

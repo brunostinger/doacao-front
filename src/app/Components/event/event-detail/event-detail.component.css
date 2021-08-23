@@ -1,0 +1,126 @@
+.eventTitle{
+    color: #6394b1;
+    font-weight: bolder;
+}
+
+.detailContainer{
+    margin-top: 30px;
+    width: 66.66666667%; 
+}
+.eventCard{
+    position: relative
+}
+.eventBanner{
+    max-height: 322px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.btnFilp{
+    width: 100%;
+}
+
+
+.eventBannerImg{
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: none;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.eventSubscription{
+    position: absolute; 
+    bottom: -50px;
+    right: 0;
+    z-index: 2;
+    width: 25%;
+}
+
+.eventDate {
+    border: 1px solid #2d2d2d;
+    border-radius: 3px;
+    background-color: #fff;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.eventTime{
+    font-size: small;
+}
+
+.eventDescription{
+    font-size: 1rem;
+    width: 66.66666667%;
+}
+
+.container{
+    width: auto;
+    height: auto;
+    position: relative;
+    border: 1px solid #ccc;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+.cardFlip {
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    
+}
+.cardFlip .divFlip {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+}
+
+.cardFlip .back {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+    backface-visibility: hidden;
+
+}
+.cardFlip.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+@media screen and (max-width: 540px) {
+    .eventSubscription{
+        position: relative; 
+        width: 91.66666667%;
+        bottom: auto;
+        right: auto;
+        z-index: auto;
+        width: 100%;
+    }
+    .detailContainer{
+        width: 91.66666667%;
+    }
+
+    .eventDescription{
+        width: 100%;
+    }
+
+}

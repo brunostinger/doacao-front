@@ -1,0 +1,43 @@
+<nav class="navbar  navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <a [routerLink]="['home']" class="me-4">
+      <img src="../../assets/img/logo.png" width="120" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+      <ul class="navbar-nav me-auto w-100 mb-2 mb-lg-0 d-flex flex-row">
+        <li class="nav-item m-2" routerLinkActive="active">
+          <a [routerLink]="['organization']" class="nav-link " >
+            <div style="max-width: 100px;" class="border-bottom pb-2">Instituições</div>
+          </a>
+        </li>
+
+        <li class="nav-item  m-2 space" routerLinkActive="active">
+          <a [routerLink]="['event']" class="nav-link ">
+            <div style="max-width: 100px;" class="border-bottom pb-2">Eventos</div>
+          </a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a [routerLink]="['login']" style="float: right" class="nav-link ">
+            <div>
+              <app-balance class="me-2"></app-balance>
+              <i class="bi bi-person-circle fs-3"></i>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>  
+
+  <ng-snotify class=""></ng-snotify>
+
+</nav>

@@ -1,0 +1,37 @@
+<div class="mainContent">
+  <div class="content container-fluid"><h3>Login</h3>
+  <form  *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row mt-3">
+      <div class="content">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" cdkTrapFocus [cdkTrapFocusAutoCapture]="true"   class="form-control" id="email" formControlName="email"  [ngClass]="{'is-invalid': form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)}" >
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="content">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" (keyup.enter)="onSubmit()" autocomplete="on" class="form-control" id="password" formControlName="password"  [ngClass]="{'is-invalid': form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)}">
+     </div>
+     </div>
+
+     <div class="row mt-3">
+      <div class="content d-flex flex-row-reverse">
+        <button type="submit" class="btn btn-outline-secondary" [disabled]="form.invalid">Entrar</button>
+      </div>
+     </div>
+
+    <div class="row mt-3">
+      <div class="content">
+        <a [routerLink]="['/user/new']" class="">
+          <button class="btn btn-link" [disabled]="form.invalid">Criar conta</button>
+        </a>
+        <a [routerLink]="['/forgot-password']" class="">
+          <button class="btn btn-link" [disabled]="form.invalid">Esqueci minha senha</button>
+        </a>
+     </div>
+    </div>
+    
+  </form>
+</div>
+</div>

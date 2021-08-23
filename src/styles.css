@@ -1,0 +1,33 @@
+
+div.block-ui-wrapper {
+    background-color:#ffffff;
+    box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.8)
+}
+
+.loadingSplash{
+    height: 3px;
+    background-color: #6394b1;;
+    transform: translateX(100%);
+    overflow: hidden;
+    animation: shift-rightwards 1.5s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+.themeColor{
+  color: #6394b1;
+}
+
+@keyframes shift-rightwards {
+    0% {
+      transform: translateX(-100%);
+    }
+    40% {
+      transform: translateX(0);
+    }
+    60% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

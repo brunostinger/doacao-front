@@ -1,0 +1,10 @@
+.actionBar{
+    display: flex;
+    justify-content: flex-end;
+    margin: 40px;
+}
+.tbContent{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

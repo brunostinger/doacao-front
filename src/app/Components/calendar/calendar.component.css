@@ -1,0 +1,6 @@
+.summaryContainer{
+    overflow: hidden;
+    overflow-x: hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
