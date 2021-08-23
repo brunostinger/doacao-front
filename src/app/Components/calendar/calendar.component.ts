@@ -1,6 +1,5 @@
 import { CalendarOptions } from '@fullcalendar/angular';
 import { Component } from '@angular/core';  
-import { CalendarMode } from 'ionic2-calendar/calendar';
 
 @Component({
   selector: 'app-calendar',
