@@ -26,7 +26,6 @@ import { SupportersComponent } from './Components/supporters/supporters.componen
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '/', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent, },
   { path: 'error', component: ErrorPageComponent, },
   { path: 'event', component: EventComponent, },
