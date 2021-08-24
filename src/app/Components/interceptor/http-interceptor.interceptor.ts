@@ -23,11 +23,18 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
       if (request.url.indexOf('viacep') ===-1) {
+        if(this.authService.getAuth()!=null){
           request = request.clone({
+            withCredentials: true,
             setHeaders: { 
               Authorization: `${this.authService.getAuth()}`     
             }
           });
+        }else{
+          request = request.clone({
+            withCredentials: true,
+          });
+        }
       }  
       
       return next.handle(request).pipe(

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'https://doacao.free.beeceptor.com/'
+  API: 'http://localhost:8080/'
 };
 
 /*
