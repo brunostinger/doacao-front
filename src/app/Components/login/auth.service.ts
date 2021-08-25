@@ -95,7 +95,7 @@ export class AuthService {
         "token": token,
         "expiresIn": expiresIn
       };
-      this.cookieService.set('doacao', JSON.stringify(cookie), new Date(expiresIn), '/','/', false, "Lax");
+      this.cookieService.set('doacao', JSON.stringify(cookie), new Date(expiresIn), '/','', false, "Lax");
       this.userType.next(this.getRole());
     }
   }
