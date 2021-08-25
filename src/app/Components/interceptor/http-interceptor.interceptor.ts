@@ -25,14 +25,9 @@ export class HttpInterceptorInterceptor implements HttpInterceptor {
       if (request.url.indexOf('viacep') ===-1) {
         if(this.authService.getAuth()!=null){
           request = request.clone({
-            withCredentials: true,
             setHeaders: { 
               Authorization: `${this.authService.getAuth()}`     
             }
-          });
-        }else{
-          request = request.clone({
-            withCredentials: true,
           });
         }
       }  
