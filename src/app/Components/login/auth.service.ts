@@ -68,7 +68,7 @@ export class AuthService {
       });    
   }
 
-  
+
   recoverPassword(user: User){
     setTimeout(() => {this.homeService.blockPage()}, 0)
     this.http.put(`${this.baseRecoverUrL}/recover`,user,httpOptions).pipe(take(1)).subscribe(
@@ -95,7 +95,7 @@ export class AuthService {
         "token": token,
         "expiresIn": expiresIn
       };
-      this.cookieService.set('doacao', JSON.stringify(cookie), new Date(expiresIn), '/','localhost', false, "Lax");
+      this.cookieService.set('doacao', JSON.stringify(cookie), new Date(expiresIn), '/','/', false, "Lax");
       this.userType.next(this.getRole());
     }
   }
