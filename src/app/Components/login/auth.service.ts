@@ -68,6 +68,7 @@ export class AuthService {
       });    
   }
 
+  
   recoverPassword(user: User){
     setTimeout(() => {this.homeService.blockPage()}, 0)
     this.http.put(`${this.baseRecoverUrL}/recover`,user,httpOptions).pipe(take(1)).subscribe(
